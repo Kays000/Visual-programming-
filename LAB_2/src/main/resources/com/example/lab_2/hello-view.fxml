@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab_2.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="КАРТОЧКА ФИЛЬМА">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+        </columnConstraints>
+
+        <Label text="Название:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <TextField fx:id="txtTitle" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+        <Label text="Жанр:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <TextField fx:id="txtGenre" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+        <Label text="Год выпуска:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <TextField fx:id="txtYear" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+        <Label text="Рейтинг (0-10):" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+        <TextField fx:id="txtRating" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+        <Label text="Возрастной ценз:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+        <ComboBox fx:id="cmbAgeRating" GridPane.rowIndex="4" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+
+        <Label text="Город показа:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+        <ComboBox fx:id="cmbCity" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+
+        <Label text="Формат:" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+        <HBox spacing="10.0" GridPane.rowIndex="6" GridPane.columnIndex="1">
+            <RadioButton fx:id="rb2D" text="2D" selected="true" />
+            <RadioButton fx:id="rb3D" text="3D / IMAX" />
+        </HBox>
+
+        <Label text="Дополнительно:" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+        <CheckBox fx:id="chkSubtitle" text="Субтитры" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+    </GridPane>
+
+    <HBox alignment="CENTER" spacing="15.0">
+        <Button fx:id="btnCreate" onAction="#onCreateClick" text="Сформировать" />
+        <Button fx:id="btnClear" onAction="#onClearClick" text="Очистить" />
+        <Button fx:id="btnExit" onAction="#onExitClick" text="Выход" />
+    </HBox>
+
+    <Separator prefWidth="200.0" />
+
+    <Label fx:id="lblResult" wrapText="true" />
+</VBox>
