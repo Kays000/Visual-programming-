@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com" xmlns:fx="http://fxml.com" fx:controller="com.example.lab4.HelloController">
+    <top>
+        <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-background-color: #e0e0e0;">
+            <padding>
+                <Insets bottom="10.0" left="15.0" right="15.0" top="10.0"/>
+            </padding>
+            <Label text="Панель управления автопарком (Вариант 13)" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Скрыть/Показать меню" onAction="#onToggleNavigation"/>
+            <Button text="Очистить форму" onAction="#onClearClick"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox fx:id="navigationBox" spacing="8.0" prefWidth="180.0" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+            <Button text="Автомобили" maxWidth="Infinity" />
+            <Button text="Техосмотр" maxWidth="Infinity" />
+            <Button text="Настройки" maxWidth="Infinity" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="15.0">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+            </padding>
+
+            <GridPane hgap="10.0" vgap="10.0">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="100.0" prefWidth="120.0" />
+                    <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+                </columnConstraints>
+
+                <rowConstraints>
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="30.0" />
+                    <RowConstraints minHeight="60.0" vgrow="ALWAYS" />
+                    <RowConstraints minHeight="40.0" />
+                </rowConstraints>
+
+                <Label text="Марка / Модель:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtModel" maxWidth="Infinity" promptText="Например, Toyota Camry" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Гос. номер:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtLicensePlate" maxWidth="Infinity" promptText="Например, 777AAA01" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Год выпуска:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cmbYear" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Тип топлива:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ChoiceBox fx:id="chbFuelType" maxWidth="Infinity" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Примечание:" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+                <TextArea fx:id="txtNote" prefHeight="60.0" wrapText="true" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                <Button text="Сохранить в базу" onAction="#onSaveClick" prefWidth="150.0" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+            </GridPane>
+
+            <TableView fx:id="tblCars" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colModel" text="Марка / Модель" prefWidth="250.0" />
+                    <TableColumn fx:id="colPlate" text="Гос. номер" prefWidth="150.0" />
+                    <TableColumn fx:id="colYear" text="Год" prefWidth="100.0" />
+                    <TableColumn fx:id="colFuel" text="Тип топлива" prefWidth="150.0" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox style="-fx-background-color: #dcdcdc;">
+            <padding>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+            </padding>
+            <Label fx:id="lblStatus" text="Статус: приложение готово к работе" />
+        </HBox>
+    </bottom>
+</BorderPane>
