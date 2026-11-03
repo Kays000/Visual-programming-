@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER_LEFT" spacing="12.0" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="kz.atu.lab1.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Название товара:">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Label>
+    <TextField fx:id="txtProduct" promptText="Например, Смартфон" />
+
+    <Label text="Цена за единицу (тг):">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Label>
+    <TextField fx:id="txtPrice" promptText="Например, 120000" />
+
+    <Label text="Количество:">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font>
+    </Label>
+    <Spinner fx:id="spnQuantity" editable="true" maxWidth="Infinity" />
+
+    <Button fx:id="btnCalculate" maxWidth="Infinity" onAction="#onCalculateClick" text="Рассчитать стоимость" textFill="#181717">
+        <font>
+            <Font size="13.0" />
+        </font>
+        <VBox.margin>
+            <Insets top="10.0" />
+        </VBox.margin>
+    </Button>
+
+    <Label fx:id="lblResult" text="Результат будет выведен здесь..." wrapText="true">
+        <font>
+            <Font size="14.0" />
+        </font>
+        <VBox.margin>
+            <Insets top="15.0" />
+        </VBox.margin>
+    </Label>
+</VBox>
