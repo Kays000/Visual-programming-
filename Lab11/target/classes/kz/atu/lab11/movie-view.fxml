@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="rootBox" spacing="14.0" styleClass="root-pane"
+      xmlns="http://javafx.com" xmlns:fx="http://javafx.com"
+      fx:controller="kz.atu.lab11.controller.MovieController">
+    <padding>
+        <Insets bottom="16.0" left="18.0" right="18.0" top="16.0"/>
+    </padding>
+
+    <!-- Верхняя панель поиска и фильтрации -->
+    <HBox spacing="10.0" alignment="CENTER_LEFT" styleClass="card-panel">
+        <Label text="🔍" styleClass="icon-label"/>
+        <TextField fx:id="txtSearch" promptText="Поиск по названию или жанру..." HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="cmbGenreFilter" prefWidth="170.0"/>
+        <Button text="Сбросить" onAction="#onResetFilters" styleClass="btn-secondary"/>
+    </HBox>
+
+    <!-- Центральная область: Таблица + Карточка предпросмотра -->
+    <HBox spacing="14.0" VBox.vgrow="ALWAYS">
+        <TableView fx:id="tableMovies" HBox.hgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colTitle" prefWidth="310.0" text="Название фильма"/>
+                <TableColumn fx:id="colGenre" prefWidth="160.0" text="Жанр"/>
+                <TableColumn fx:id="colRating" prefWidth="120.0" text="Рейтинг"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+
+        <!-- Боковая панель карточки и формы -->
+        <VBox spacing="12.0" prefWidth="280.0" minWidth="280.0" styleClass="card-panel">
+            <Label text="КАРТОЧКА ФИЛЬМА" styleClass="section-header"/>
+            <VBox spacing="4.0" styleClass="preview-box">
+                <Label fx:id="lblPreviewTitle" text="Фильм не выбран" wrapText="true" styleClass="preview-title"/>
+                <Label fx:id="lblPreviewGenre" text="Нажмите на строку в таблице" styleClass="preview-sub"/>
+                <Label fx:id="lblPreviewRating" text="★ —" styleClass="preview-rating"/>
+            </VBox>
+
+            <Separator/>
+
+            <Label text="ДАННЫЕ ЗАПИСИ" styleClass="section-header"/>
+            <TextField fx:id="txtTitle" promptText="Название фильма" onAction="#onAdd"/>
+            <TextField fx:id="txtGenre" promptText="Жанр (например: Драма)" onAction="#onAdd"/>
+
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+                <Label text="Рейтинг:"/>
+                <Slider fx:id="sliderRating" min="0" max="10" value="7.5" blockIncrement="0.1" HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="txtRating" text="7.5" prefWidth="52.0" onAction="#onAdd"/>
+            </HBox>
+
+            <VBox spacing="8.0" VBox.vgrow="ALWAYS" alignment="BOTTOM_CENTER">
+                <HBox spacing="8.0">
+                    <Button text="+ Добавить" onAction="#onAdd" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-primary"/>
+                    <Button fx:id="btnUpdate" text="Сохранить" onAction="#onUpdate" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-accent"/>
+                </HBox>
+                <HBox spacing="8.0">
+                    <Button fx:id="btnDelete" text="Удалить" onAction="#onDelete" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-danger"/>
+                    <Button text="Очистить" onAction="#onClearSelection" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-secondary"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </HBox>
+
+    <!-- Нижняя строка статуса и аналитики -->
+    <HBox spacing="16.0" alignment="CENTER_LEFT" styleClass="status-bar">
+        <Label fx:id="lblCount" text="Показано: 0"/>
+        <Separator orientation="VERTICAL"/>
+        <Label fx:id="lblAvgRating" text="Средний рейтинг: 0.00"/>
+        <Separator orientation="VERTICAL"/>
+        <Label fx:id="lblTopMovie" text="Лидер: —"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="lblStatus" text="Готово к работе"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,107 @@
+.root-pane {
+    -fx-background-color: #f1f5f9;
+    -fx-font-family: "Segoe UI", "Inter", system-ui, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.card-panel {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-padding: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(15, 23, 42, 0.06), 10, 0, 0, 2);
+}
+
+.section-header {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748b;
+}
+
+.preview-box {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+}
+
+.preview-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f172a;
+}
+
+.preview-sub {
+    -fx-text-fill: #475569;
+}
+
+.preview-rating {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #eab308;
+    -fx-padding: 4px 0 0 0;
+}
+
+.text-field, .combo-box {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 6px 10px;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #2563eb;
+    -fx-background-color: #ffffff;
+}
+
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #e2e8f0;
+}
+
+.table-view .column-header {
+    -fx-background-color: #f8fafc;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+}
+
+.button {
+    -fx-background-radius: 6px;
+    -fx-padding: 7px 12px;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+.btn-primary {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+.btn-primary:hover { -fx-background-color: #1d4ed8; }
+
+.btn-accent {
+    -fx-background-color: #0d9488;
+    -fx-text-fill: white;
+}
+.btn-accent:hover { -fx-background-color: #0f766e; }
+
+.btn-danger {
+    -fx-background-color: #ef4444;
+    -fx-text-fill: white;
+}
+.btn-danger:hover { -fx-background-color: #dc2626; }
+
+.btn-secondary {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #334155;
+}
+.btn-secondary:hover { -fx-background-color: #cbd5e1; }
+
+.status-bar {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 14px;
+    -fx-text-fill: #334155;
+}
